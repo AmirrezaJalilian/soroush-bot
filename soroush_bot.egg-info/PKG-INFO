@@ -1,0 +1,139 @@
+Metadata-Version: 2.4
+Name: soroush-bot
+Version: 1.0.0
+Summary: Async Python client for Soroush Plus Bot API with python-telegram-bot-like syntax
+Author-email: Amirreza Jalilian <amirreza.jalilian@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/AmirrezaJalilian/soroush-bot
+Project-URL: Repository, https://github.com/AmirrezaJalilian/soroush-bot
+Project-URL: Documentation, https://amirrezajalilian.github.io/soroush-bot/
+Project-URL: Issues, https://github.com/AmirrezaJalilian/soroush-bot/issues
+Keywords: soroush,soroush-plus,bot,telegram-bot,async,asyncio
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Communications :: Chat
+Classifier: Framework :: AsyncIO
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp>=3.8.0
+Dynamic: license-file
+
+# 🤖 soroush-bot
+
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Async](https://img.shields.io/badge/async-✔-brightgreen)](https://docs.python.org/3/library/asyncio.html)
+[![Soroush Plus](https://img.shields.io/badge/Soroush%20Plus-API-blueviolet)](https://soroushplus.com)
+[![PyPI version](https://badge.fury.io/py/soroush-bot.svg)](https://pypi.org/project/soroush-bot/)
+
+**soroush-bot** یک کتابخانه‌ی پایتون برای ساخت ربات‌های پیام‌رسان [سروش پلاس](https://soroushplus.com) است. این کتابخانه با الهام از `python-telegram-bot` نسخه ۲۲ به بالا طراحی شده تا توسعه‌دهندگان بتوانند به‌راحتی و با کمترین تغییرات، ربات‌های خود را برای سروش بسازند.
+
+---
+
+## ✨ ویژگی‌ها
+
+- **سینتکس آشنا** – مشابه `python-telegram-bot` v22+
+- **کاملاً ناهمگام (Async)** – مبتنی بر `asyncio` و `aiohttp`
+- **پشتیبانی از تمام متدهای API سروش پلاس** – ارسال پیام، عکس، صدا، ویدئو، استیکر، فایل، ویرایش، حذف و ...
+- **هندلرهای قدرتمند** – `CommandHandler`, `MessageHandler`, `CallbackQueryHandler`
+- **فیلترهای انعطاف‌پذیر** – ترکیب با `&`, `|`, `~`
+- **مدیریت خودکار offset** – بدون نگرانی از دریافت پیام‌های تکراری
+- **بستن صحیح session** – جلوگیری از خطای "Unclosed client session"
+
+---
+
+## 📦 نصب
+
+```bash
+pip install soroush-bot
+```
+
+یا مستقیماً از گیت‌هاب:
+
+```bash
+pip install git+https://github.com/AmirrezaJalilian/soroush-bot.git
+```
+
+> **توصیه:** از یک محیط مجازی (venv) استفاده کنید.
+
+---
+
+## 🚀 شروع سریع
+
+یک ربات ساده با دستور `/start`:
+
+```python
+from soroush_bot import Application, CommandHandler
+
+async def start(update, context):
+    await update.message.reply_text("سلام! به ربات سروش خوش آمدید.")
+
+def main():
+    app = Application("YOUR_BOT_TOKEN")
+    app.add_handler(CommandHandler("start", start))
+    app.run_polling()
+
+if __name__ == "__main__":
+    main()
+```
+
+برای دریافت توکن، به ربات [@BotFather](https://splus.ir/botfather) در سروش مراجعه کنید.
+
+---
+
+## 📁 ساختار پروژه
+
+```
+soroush_bot/
+├── __init__.py          # صادرات عمومی
+├── application.py       # کلاس Application
+├── handlers.py          # هندلرها
+├── filters.py           # فیلترها
+├── types.py             # انواع داده (Message, User, ...)
+├── context.py           # Context
+└── client.py            # کلاینت کامل API سروش
+example_bot.py           # نمونه ربات ساده
+README.md                # این فایل
+LICENSE                  # مجوز MIT
+pyproject.toml           # تنظیمات PyPI
+```
+
+---
+
+## 🤝 مشارکت
+
+ما خوشحال می‌شویم که شما در بهبود این پروژه مشارکت کنید! لطفاً مراحل زیر را دنبال کنید:
+
+1. **فورک** (Fork) مخزن
+2. یک **برنچ جدید** ایجاد کنید (`git checkout -b feature/amazing-feature`)
+3. تغییرات خود را **کامیت** کنید (`git commit -m 'Add some amazing feature'`)
+4. **پوش** کنید (`git push origin feature/amazing-feature`)
+5. یک **Pull Request** باز کنید
+
+---
+
+## 📜 مجوز
+
+این پروژه تحت مجوز **MIT** منتشر شده است. برای جزئیات بیشتر به فایل [LICENSE](LICENSE) مراجعه کنید.
+
+---
+
+## 💬 ارتباط با ما
+
+- **گیت‌هاب:** [https://github.com/AmirrezaJalilian/soroush-bot](https://github.com/AmirrezaJalilian/soroush-bot)
+- **PyPI:** [https://pypi.org/project/soroush-bot/](https://pypi.org/project/soroush-bot/)
+- **سروش پلاس:** [https://soroushplus.com](https://soroushplus.com)
+
+---
+
+**ساخته شده با ❤️ برای جامعه سروش پلاس**

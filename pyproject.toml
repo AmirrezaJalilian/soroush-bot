@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "soroush-bot"
+version = "1.0.0"
+description = "Async Python client for Soroush Plus Bot API with python-telegram-bot-like syntax"
+readme = "README.md"
+authors = [
+    {name = "Amirreza Jalilian", email = "amirreza.jalilian@example.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Communications :: Chat",
+    "Framework :: AsyncIO",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "aiohttp>=3.8.0"
+]
+keywords = ["soroush", "soroush-plus", "bot", "telegram-bot", "async", "asyncio"]
+
+[project.urls]
+Homepage = "https://github.com/AmirrezaJalilian/soroush-bot"
+Repository = "https://github.com/AmirrezaJalilian/soroush-bot"
+Documentation = "https://amirrezajalilian.github.io/soroush-bot/"
+Issues = "https://github.com/AmirrezaJalilian/soroush-bot/issues"
+
+[tool.setuptools.packages.find]
+include = ["soroush_bot*"]
+exclude = ["docs*", "tests*"]
